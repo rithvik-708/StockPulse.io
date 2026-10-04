@@ -1,0 +1,155 @@
+services:
+  kafka:
+    image: apache/kafka:3.7.0
+    container_name: pulse-kafka
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_NODE_ID=1
+      - KAFKA_PROCESS_ROLES=broker,controller
+      - KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - KAFKA_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,DOCKER://:9094
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,DOCKER:PLAINTEXT
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092,DOCKER://pulse-kafka:9094
+      - KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093
+      - KAFKA_CLUSTER_ID=MkU3OEVBNTcwNTJENDM2Qk
+      - KAFKA_INTER_BROKER_LISTENER_NAME=PLAINTEXT
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+      - KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=1
+      - KAFKA_TRANSACTION_STATE_LOG_MIN_ISR=1
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: pulse-postgres
+    environment:
+      POSTGRES_USER: quant
+      POSTGRES_PASSWORD: quantpassword
+      POSTGRES_DB: marketpulse
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quant -d marketpulse"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: pulse-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # Observability Stack
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: marketpulse-prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: marketpulse-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=quantadmin
+    depends_on:
+      - prometheus
+
+  # C++ Engine
+  market-engine:
+    build:
+      context: ../engine
+    container_name: pulse-market-engine
+    depends_on:
+      kafka:
+        condition: service_healthy
+    ports:
+      - "8080:8080" # Prometheus metrics endpoint
+    command: ["./market-engine", "pulse-kafka:9094"]
+
+  # Python Services
+  feature-engine:
+    build:
+      context: ../services
+    container_name: pulse-feature-engine
+    restart: on-failure
+    environment:
+      - SERVICE_TYPE=worker
+      - APP_MODULE=feature_engine/main.py
+      - KAFKA_BOOTSTRAP_SERVERS=pulse-kafka:9094
+    depends_on:
+      kafka:
+        condition: service_healthy
+
+  storage-sink:
+    build:
+      context: ../services
+    container_name: pulse-storage-sink
+    restart: on-failure
+    environment:
+      - SERVICE_TYPE=worker
+      - APP_MODULE=storage_sink/main.py
+      - KAFKA_BOOTSTRAP_SERVERS=pulse-kafka:9094
+      - PG_DSN=postgresql://quant:quantpassword@pulse-postgres:5432/marketpulse
+      - REDIS_HOST=pulse-redis
+      - REDIS_PORT=6379
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  signal-engine:
+    build:
+      context: ../services
+    container_name: pulse-signal-engine
+    restart: on-failure
+    environment:
+      - SERVICE_TYPE=worker
+      - APP_MODULE=signal_engine/main.py
+      - KAFKA_BOOTSTRAP_SERVERS=pulse-kafka:9094
+    depends_on:
+      kafka:
+        condition: service_healthy
+
+  api-gateway:
+    build:
+      context: ../services
+    container_name: pulse-api-gateway
+    restart: on-failure
+    environment:
+      - SERVICE_TYPE=fastapi
+      - APP_MODULE=api.main:app
+      - NVIDIA_API_KEY=${NVIDIA_API_KEY:-${NIM_API_KEY:-${OPENAI_API_KEY:-nvapi-mock-key}}}
+      - NVIDIA_MODEL=${NVIDIA_MODEL:-meta/llama-3.3-70b-instruct}
+      - NVIDIA_BASE_URL=${NVIDIA_BASE_URL:-https://integrate.api.nvidia.com/v1}
+    ports:
+      - "8000:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  # Next.js Frontend
+  frontend:
+    build:
+      context: ../frontend
+    container_name: pulse-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api-gateway

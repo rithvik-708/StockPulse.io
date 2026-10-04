@@ -1,0 +1,18 @@
+[project]
+name = "stockpulse-services"
+version = "0.1.0"
+description = "Python microservices for Stock Pulse"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "confluent-kafka>=2.3.0",
+    "fastapi>=0.142.2",
+    "numpy>=1.26.4",
+    "openai>=3.23.0",
+    "pandas>=3.0.6",
+    "psycopg[binary]>=3.1.18",
+    "pydantic>=2.6.3",
+    "redis>=5.0.1",
+    "uvicorn>=0.54.0",
+    "websockets>=17.1",
+]
