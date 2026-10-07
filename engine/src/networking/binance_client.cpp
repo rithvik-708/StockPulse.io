@@ -6,7 +6,7 @@
 #include <openssl/err.h>
 #include <boost/core/ignore_unused.hpp>
 
-namespace marketpulse {
+namespace stockpulse {
 
 BinanceClient::BinanceClient(const std::string& host, const std::string& port, const std::string& path)
     : host_(host), port_(port), path_(path),
@@ -119,4 +119,4 @@ void BinanceClient::on_read(boost::beast::error_code ec, std::size_t bytes_trans
     do_read();
 }
 
-} // namespace marketpulse
+} // namespace stockpulse

@@ -2,7 +2,7 @@
 #include <cstring>
 #include <iostream>
 
-namespace marketpulse {
+namespace stockpulse {
 
 LimitOrderBook::LimitOrderBook(std::string symbol) : symbol_(std::move(symbol)) {
     order_locator_.reserve(100'000);
@@ -107,4 +107,4 @@ std::optional<L1MarketTick> LimitOrderBook::get_l1_snapshot(uint64_t receive_tim
     return tick;
 }
 
-} // namespace marketpulse
+} // namespace stockpulse

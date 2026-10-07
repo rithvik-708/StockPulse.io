@@ -13,7 +13,7 @@ COPY pyproject.toml uv.lock ./
 RUN uv pip install --system -r pyproject.toml
 
 # Copy application source
-COPY . .
+COPY services/ .
 
 # Pass python module path to run as env var or default to api
 ENV APP_MODULE="api.main:app"

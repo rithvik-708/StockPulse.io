@@ -24,27 +24,27 @@ int main(int argc, char* argv[]) {
     auto registry = std::make_shared<Registry>();
 
     auto& event_counter = BuildCounter()
-        .Name("marketpulse_events_total")
+        .Name("stockpulse_events_total")
         .Help("Total market events processed")
         .Register(*registry)
         .Add({{"symbol", "BTCUSDT"}});
 
     auto& latency_histogram = BuildHistogram()
-        .Name("marketpulse_latency_microseconds")
+        .Name("stockpulse_latency_microseconds")
         .Help("Processing latency in microseconds")
         .Register(*registry)
         .Add({}, Histogram::BucketBoundaries{0.5, 1.0, 2.0, 5.0, 10.0, 50.0});
 
     exposer.RegisterCollectable(registry);
 
-    marketpulse::LimitOrderBook order_book("BTCUSDT");
-    marketpulse::LowLatencyKafkaProducer producer(kafka_broker, "market.normalized");
+    stockpulse::LimitOrderBook order_book("BTCUSDT");
+    stockpulse::LowLatencyKafkaProducer producer(kafka_broker, "market.normalized");
 
     // The Binance WebSocket Client handles the ASIO event loop and parses L2 payload JSON 
-    // down to marketpulse::MarketEvent arrays, then invokes the callback.
-    marketpulse::BinanceClient ws_client("stream.binance.com", "9443", "/ws/btcusdt@depth5@100ms");
+    // down to stockpulse::MarketEvent arrays, then invokes the callback.
+    stockpulse::BinanceClient ws_client("stream.binance.com", "9443", "/ws/btcusdt@depth5@100ms");
 
-    ws_client.set_message_callback([&](const std::vector<marketpulse::MarketEvent>& events, uint64_t t_receive_ns) {
+    ws_client.set_message_callback([&](const std::vector<stockpulse::MarketEvent>& events, uint64_t t_receive_ns) {
         for (const auto& ev : events) {
             order_book.process_event(ev);
         }

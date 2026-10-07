@@ -5,7 +5,7 @@
 #include <memory>
 #include <librdkafka/rdkafkacpp.h>
 
-namespace marketpulse {
+namespace stockpulse {
 
 class LowLatencyKafkaProducer : public RdKafka::DeliveryReportCb {
 public:
@@ -22,4 +22,4 @@ private:
     std::unique_ptr<RdKafka::Topic> topic_;
 };
 
-} // namespace marketpulse
+} // namespace stockpulse

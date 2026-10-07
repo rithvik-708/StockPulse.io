@@ -1,7 +1,7 @@
 #include "synthetic/generator.hpp"
 #include <cstring>
 
-namespace marketpulse {
+namespace stockpulse {
 
 SyntheticMarketGenerator::SyntheticMarketGenerator(std::string symbol, double initial_price, uint32_t seed)
     : symbol_(std::move(symbol)), current_price_(initial_price), rng_(seed) {}
@@ -29,4 +29,4 @@ MarketEvent SyntheticMarketGenerator::generate_event() {
     return ev;
 }
 
-} // namespace marketpulse
+} // namespace stockpulse

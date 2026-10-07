@@ -11,7 +11,7 @@
 #include <boost/asio/ssl/stream.hpp>
 #include <boost/asio/ssl/context.hpp>
 
-namespace marketpulse {
+namespace stockpulse {
 
 class BinanceClient {
 public:
@@ -44,4 +44,4 @@ private:
     MessageCallback callback_;
 };
 
-} // namespace marketpulse
+} // namespace stockpulse

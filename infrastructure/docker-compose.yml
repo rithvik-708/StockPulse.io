@@ -29,11 +29,11 @@ services:
     environment:
       POSTGRES_USER: quant
       POSTGRES_PASSWORD: quantpassword
-      POSTGRES_DB: marketpulse
+      POSTGRES_DB: stockpulse
     ports:
       - "5433:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U quant -d marketpulse"]
+      test: ["CMD-SHELL", "pg_isready -U quant -d stockpulse"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -52,7 +52,7 @@ services:
   # Observability Stack
   prometheus:
     image: prom/prometheus:latest
-    container_name: marketpulse-prometheus
+    container_name: stockpulse-prometheus
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
@@ -60,7 +60,7 @@ services:
 
   grafana:
     image: grafana/grafana:latest
-    container_name: marketpulse-grafana
+    container_name: stockpulse-grafana
     ports:
       - "3001:3000"
     environment:
@@ -83,7 +83,8 @@ services:
   # Python Services
   feature-engine:
     build:
-      context: ../services
+      context: ..
+      dockerfile: services/Dockerfile
     container_name: pulse-feature-engine
     restart: on-failure
     environment:
@@ -96,14 +97,15 @@ services:
 
   storage-sink:
     build:
-      context: ../services
+      context: ..
+      dockerfile: services/Dockerfile
     container_name: pulse-storage-sink
     restart: on-failure
     environment:
       - SERVICE_TYPE=worker
       - APP_MODULE=storage_sink/main.py
       - KAFKA_BOOTSTRAP_SERVERS=pulse-kafka:9094
-      - PG_DSN=postgresql://quant:quantpassword@pulse-postgres:5432/marketpulse
+      - PG_DSN=postgresql://quant:quantpassword@pulse-postgres:5432/stockpulse
       - REDIS_HOST=pulse-redis
       - REDIS_PORT=6379
     depends_on:
@@ -116,7 +118,8 @@ services:
 
   signal-engine:
     build:
-      context: ../services
+      context: ..
+      dockerfile: services/Dockerfile
     container_name: pulse-signal-engine
     restart: on-failure
     environment:
@@ -129,7 +132,8 @@ services:
 
   api-gateway:
     build:
-      context: ../services
+      context: ..
+      dockerfile: services/Dockerfile
     container_name: pulse-api-gateway
     restart: on-failure
     environment:
@@ -138,6 +142,8 @@ services:
       - NVIDIA_API_KEY=${NVIDIA_API_KEY:-${NIM_API_KEY:-${OPENAI_API_KEY:-nvapi-mock-key}}}
       - NVIDIA_MODEL=${NVIDIA_MODEL:-z-ai/glm-5.3-flash}
       - NVIDIA_BASE_URL=${NVIDIA_BASE_URL:-https://integrate.api.nvidia.com/v1}
+      - REDIS_HOST=pulse-redis
+      - REDIS_PORT=6379
     ports:
       - "8000:8000"
     depends_on:

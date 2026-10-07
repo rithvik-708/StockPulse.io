@@ -1,6 +1,6 @@
 # Stage 1: Build
 FROM ubuntu:22.04 AS builder
-RUN apt-get update && apt-get install -y \
+RUN apt-get update --fix-missing && apt-get install -y --fix-missing \
     cmake \
     g++ \
     libssl-dev \
@@ -19,7 +19,7 @@ RUN mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j
 
 # Stage 2: Runtime
 FROM ubuntu:22.04
-RUN apt-get update && apt-get install -y \
+RUN apt-get update --fix-missing && apt-get install -y --fix-missing \
     librdkafka1 \
     librdkafka++1 \
     libssl3 \

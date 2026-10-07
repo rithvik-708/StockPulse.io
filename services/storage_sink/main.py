@@ -6,7 +6,7 @@ import redis
 from confluent_kafka import Consumer
 
 KAFKA_BROKER = os.getenv("KAFKA_BOOTSTRAP_SERVERS") or os.getenv("KAFKA_BROKER", "localhost:9092")
-PG_DSN = os.getenv("PG_DSN", "postgresql://quant:quantpassword@localhost:5433/marketpulse")
+PG_DSN = os.getenv("PG_DSN", "postgresql://quant:quantpassword@localhost:5433/stockpulse")
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 REDIS_PORT = int(os.getenv("REDIS_PORT", "6379"))
 

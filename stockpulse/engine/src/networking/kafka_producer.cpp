@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <vector>
 
-namespace marketpulse {
+namespace stockpulse {
 
 LowLatencyKafkaProducer::LowLatencyKafkaProducer(const std::string& brokers, const std::string& topic_name)
     : topic_name_(topic_name) {
@@ -77,4 +77,4 @@ bool LowLatencyKafkaProducer::publish_l1_tick(const L1MarketTick& tick) {
     return (resp == RdKafka::ERR_NO_ERROR);
 }
 
-} // namespace marketpulse
+} // namespace stockpulse

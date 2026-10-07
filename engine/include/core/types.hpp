@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace marketpulse {
+namespace stockpulse {
 
 struct MarketEvent {
     std::string symbol;
@@ -22,4 +22,4 @@ struct L1Tick {
     uint64_t lat_ns;
 };
 
-} // namespace marketpulse
+} // namespace stockpulse

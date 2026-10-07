@@ -7,7 +7,7 @@
 #include <optional>
 #include <string>
 
-namespace marketpulse {
+namespace stockpulse {
 
 class LimitOrderBook {
 public:
@@ -46,4 +46,4 @@ private:
     std::unordered_map<uint64_t, OrderLocation> order_locator_;
 };
 
-} // namespace marketpulse
+} // namespace stockpulse

@@ -4,11 +4,11 @@ import redis
 import psycopg
 from confluent_kafka import Consumer
 
-print("--- MarketPulse End-to-End Pipeline Health Check ---")
+print("--- StockPulse.io End-to-End Pipeline Health Check ---")
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 REDIS_PORT = int(os.getenv("REDIS_PORT", "6379"))
-PG_DSN = os.getenv("PG_DSN", "postgresql://quant:quantpassword@localhost:5433/marketpulse")
+PG_DSN = os.getenv("PG_DSN", "postgresql://quant:quantpassword@localhost:5433/stockpulse")
 KAFKA_BROKER = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
 
 status = True

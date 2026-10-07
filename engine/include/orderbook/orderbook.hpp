@@ -4,7 +4,7 @@
 #include <optional>
 #include <map>
 
-namespace marketpulse {
+namespace stockpulse {
 
 class LimitOrderBook {
 public:
@@ -19,4 +19,4 @@ private:
     std::map<double, double, std::less<double>> asks_;
 };
 
-} // namespace marketpulse
+} // namespace stockpulse

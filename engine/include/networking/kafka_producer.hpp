@@ -2,7 +2,7 @@
 #include "core/types.hpp"
 #include <string>
 
-namespace marketpulse {
+namespace stockpulse {
 
 class LowLatencyKafkaProducer {
 public:
@@ -17,4 +17,4 @@ private:
     void* impl_ = nullptr;
 };
 
-} // namespace marketpulse
+} // namespace stockpulse

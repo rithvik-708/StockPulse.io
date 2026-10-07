@@ -16,14 +16,14 @@ int main(int argc, char* argv[]) {
 
     const size_t TOTAL_EVENTS = 200'000;
     std::cout << "========================================================\n"
-              << "MarketPulse Core Engine - Day 1 Initialization\n"
+              << "StockPulse.io Core Engine - Day 1 Initialization\n"
               << "Connecting to Kafka: " << kafka_broker << " [Topic: " << kafka_topic << "]\n"
               << "Streaming Target: " << TOTAL_EVENTS << " deterministic events\n"
               << "========================================================\n";
 
-    marketpulse::LimitOrderBook order_book("BTCUSDT");
-    marketpulse::LowLatencyKafkaProducer producer(kafka_broker, kafka_topic);
-    marketpulse::SyntheticMarketGenerator generator("BTCUSDT", 98500.0, 1337);
+    stockpulse::LimitOrderBook order_book("BTCUSDT");
+    stockpulse::LowLatencyKafkaProducer producer(kafka_broker, kafka_topic);
+    stockpulse::SyntheticMarketGenerator generator("BTCUSDT", 98500.0, 1337);
 
     std::vector<double> latencies_ns;
     latencies_ns.reserve(TOTAL_EVENTS);
@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
         auto event = generator.generate_event();
 
         // 2. Process order inside memory LOB
-        event.timestamps.t_process_ns = marketpulse::now_nanoseconds();
+        event.timestamps.t_process_ns = stockpulse::now_nanoseconds();
         order_book.process_event(event);
 
         // 3. Extract Level 1 Derived Metrics

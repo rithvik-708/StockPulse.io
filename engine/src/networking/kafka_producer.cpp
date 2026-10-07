@@ -3,7 +3,7 @@
 #include <nlohmann/json.hpp>
 #include <librdkafka/rdkafkacpp.h>
 
-namespace marketpulse {
+namespace stockpulse {
 
 LowLatencyKafkaProducer::LowLatencyKafkaProducer(const std::string& brokers, const std::string& topic)
     : topic_(topic) {
@@ -65,4 +65,4 @@ void LowLatencyKafkaProducer::poll(int timeout_ms) {
     }
 }
 
-} // namespace marketpulse
+} // namespace stockpulse

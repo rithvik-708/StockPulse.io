@@ -4,7 +4,7 @@
 #include <chrono>
 #include <string>
 
-namespace marketpulse {
+namespace stockpulse {
 
 enum class Side : uint8_t {
     BUY = 0,
@@ -66,4 +66,4 @@ inline uint64_t now_nanoseconds() {
     ).count();
 }
 
-} // namespace marketpulse
+} // namespace stockpulse

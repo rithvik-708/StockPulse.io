@@ -1,7 +1,7 @@
 services:
   kafka:
     image: apache/kafka:3.7.0
-    container_name: marketpulse-kafka
+    container_name: stockpulse-kafka
     ports:
       - "9092:9092"
       - "9094:9094"
@@ -26,24 +26,24 @@ services:
 
   postgres:
     image: postgres:16-alpine
-    container_name: marketpulse-postgres
+    container_name: stockpulse-postgres
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: quant
       POSTGRES_PASSWORD: quantpassword
-      POSTGRES_DB: marketpulse
+      POSTGRES_DB: stockpulse
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U quant -d marketpulse"]
+      test: ["CMD-SHELL", "pg_isready -U quant -d stockpulse"]
       interval: 5s
       timeout: 4s
       retries: 5
 
   redis:
     image: redis:7.2-alpine
-    container_name: marketpulse-redis
+    container_name: stockpulse-redis
     ports:
       - "6379:6379"
     volumes:

@@ -1,6 +1,6 @@
 #include "orderbook/orderbook.hpp"
 
-namespace marketpulse {
+namespace stockpulse {
 
 LimitOrderBook::LimitOrderBook(std::string symbol) : symbol_(std::move(symbol)) {}
 
@@ -35,4 +35,4 @@ std::optional<L1Tick> LimitOrderBook::get_l1_snapshot(uint64_t current_ts_ns) co
     return tick;
 }
 
-} // namespace marketpulse
+} // namespace stockpulse

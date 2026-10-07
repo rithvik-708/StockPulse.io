@@ -4,7 +4,7 @@
 #include <random>
 #include <string>
 
-namespace marketpulse {
+namespace stockpulse {
 
 class SyntheticMarketGenerator {
 public:
@@ -22,4 +22,4 @@ private:
     std::bernoulli_distribution side_dist_{0.5};
 };
 
-} // namespace marketpulse
+} // namespace stockpulse
