@@ -63,19 +63,61 @@ async def get_risk():
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     pubsub = redis_client.pubsub()
-    # Subscribe to a channel (Requires Storage Sink or Signal Engine to PUBLISH to this channel)
-    await pubsub.subscribe("market_updates")
+
+    try:
+        await pubsub.subscribe("market_updates")
+    except Exception:
+        # Redis not available — keep connection alive with heartbeats only
+        try:
+            while True:
+                await websocket.send_json({"type": "heartbeat", "status": "waiting_for_data"})
+                await asyncio.sleep(5)
+        except WebSocketDisconnect:
+            return
+
+    async def receive_loop():
+        try:
+            while True:
+                await websocket.receive()
+        except WebSocketDisconnect:
+            pass
+
+    async def send_loop():
+        try:
+            while True:
+                try:
+                    message = await pubsub.get_message(ignore_subscribe_messages=True, timeout=5.0)
+                    if message and message.get("type") == "message":
+                        data = message["data"]
+                        if not isinstance(data, str):
+                            data = str(data)
+                        await websocket.send_text(data)
+                    elif not message:
+                        # No data yet — send a heartbeat to keep the connection alive
+                        await websocket.send_json({"type": "heartbeat", "status": "no_data"})
+                except asyncio.TimeoutError:
+                    await websocket.send_json({"type": "heartbeat", "status": "no_data"})
+                except Exception:
+                    await asyncio.sleep(1)
+                await asyncio.sleep(0.01)
+        except WebSocketDisconnect:
+            pass
+
+    recv_task = asyncio.create_task(receive_loop())
+    send_task = asyncio.create_task(send_loop())
     
     try:
-        while True:
-            message = await pubsub.get_message(ignore_subscribe_messages=True)
-            if message:
-                await websocket.send_text(message["data"])
-            await asyncio.sleep(0.01) # Yield control
-    except WebSocketDisconnect:
-        print("Client disconnected")
+        done, pending = await asyncio.wait(
+            [recv_task, send_task],
+            return_when=asyncio.FIRST_COMPLETED,
+        )
+        for task in pending:
+            task.cancel()
     finally:
-        await pubsub.unsubscribe("market_updates")
+        try:
+            await pubsub.unsubscribe("market_updates")
+        except Exception:
+            pass
 
 class ChatMessage(BaseModel):
     role: str
