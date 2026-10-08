@@ -1,0 +1,694 @@
+
+<aside className="fixed left-0 top-0 h-screen w-16 bg-surface-container-lowest flex flex-col justify-between py-space-sm z-50 shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div className="flex flex-col items-center gap-space-md w-full"><div className="h-10 w-full flex items-center justify-center"><img alt="StockPulse Brand Logo" className="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vv5wuNs_lN61Ta91ZAqEEAEbPgpQy4TPj64lnd0K_-d258fGa3S4RoxVUv_7LLzNUIsWyjU5vngi57_mrZyoM-ER23GwN2eoKInyFmCCfXpO5zg2-apW7PjzCjgEUwmVKMWBMqvdvPgBnQS1z1DLpYm2dzQ8B7shfIiADtI6-_Ed-sKODqZkMGOCLU0taiBj2CmeNwOkS4dqj2ymIX_dDt0S8fMiysxgfHXkcQyma5Mw"/></div><nav className="flex flex-col items-center gap-space-xs w-full px-space-xs" data-active-classes="bg-surface-container-high text-primary-container"><a aria-current="page" className="flex flex-col items-center justify-center w-full h-10 rounded transition-colors bg-surface-container-high text-primary-container" data-path="terminal-dashboard" href="#" title="Terminal Dashboard"><span className="material-symbols-outlined text-[20px]">terminal</span><span className="font-label-caps text-label-caps uppercase mt-0.5">Term</span></a><a className="flex flex-col items-center justify-center w-full h-10 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="order-book-depth" href="#" title="Order Book &amp; DOM"><span className="material-symbols-outlined text-[20px]">layers</span><span className="font-label-caps text-label-caps uppercase mt-0.5">Book</span></a><a className="flex flex-col items-center justify-center w-full h-10 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="quant-signals" href="#" title="Quant Alpha Signals"><span className="material-symbols-outlined text-[20px]">bolt</span><span className="font-label-caps text-label-caps uppercase mt-0.5">Quant</span></a><a className="flex flex-col items-center justify-center w-full h-10 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="ai-copilot" href="#" title="Algorithmic AI Copilot"><span className="material-symbols-outlined text-[20px]">smart_toy</span><span className="font-label-caps text-label-caps uppercase mt-0.5">Copilot</span></a><a className="flex flex-col items-center justify-center w-full h-10 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="system-health" href="#" title="Telemetry &amp; Cluster Health"><span className="material-symbols-outlined text-[20px]">dns</span><span className="font-label-caps text-label-caps uppercase mt-0.5">Infra</span></a><a className="flex flex-col items-center justify-center w-full h-10 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="settings-execution" href="#" title="Execution Parameters &amp; Settings"><span className="material-symbols-outlined text-[20px]">tune</span><span className="font-label-caps text-label-caps uppercase mt-0.5">Config</span></a></nav></div><div className="flex flex-col items-center gap-space-sm w-full px-space-xs"><div className="flex flex-col items-center justify-center w-full py-space-xs rounded bg-surface-container-low text-center" title="Active Cluster: US-EAST (Alpha-01)"><div className="flex items-center gap-1"><span className="inline-block w-1.5 h-1.5 bg-primary-container rounded-none animate-pulse"></span><span className="font-label-caps text-label-caps text-on-surface-variant uppercase">USE-1</span></div><span className="font-tabular-xs text-tabular-xs text-primary-container">ALPHA</span></div><div className="flex flex-col items-center justify-center w-full py-space-xs rounded bg-surface-container-low text-center" title="Risk Budget: Nominal 12.4%"><span className="font-label-caps text-label-caps text-on-surface-variant uppercase">Risk</span><span className="font-tabular-xs text-tabular-xs text-tertiary-fixed-dim">NOMINAL</span></div><a className="flex items-center justify-center w-full h-8 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="api-documentation" href="#" title="Documentation &amp; API Specs"><span className="material-symbols-outlined text-[18px]">menu_book</span></a></div></aside><div className="pl-16"><header className="fixed top-0 left-16 right-0 h-14 bg-surface-container-lowest/95 backdrop-blur-md z-40 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div className="h-6 w-full overflow-hidden bg-surface-container flex items-center px-space-md gap-space-xl"><div className="flex items-center gap-space-xs shrink-0"><span className="font-label-caps text-label-caps text-primary-container uppercase tracking-wider">MARKETS L2</span><span className="material-symbols-outlined text-[12px] text-on-surface-variant">rss_feed</span></div><div className="flex items-center gap-space-xl overflow-x-hidden whitespace-nowrap font-tabular-xs text-tabular-xs"><div className="flex items-center gap-space-xs"><span className="text-on-surface font-semibold">BTC/USDT</span><span className="text-primary-container">$92,450.20</span><span className="text-primary-container">+3.42%</span></div><div className="flex items-center gap-space-xs"><span className="text-on-surface font-semibold">ETH/USDT</span><span className="text-primary-container">$3,412.80</span><span className="text-primary-container">+1.85%</span></div><div className="flex items-center gap-space-xs"><span className="text-on-surface font-semibold">SOL/USDT</span><span className="text-secondary-fixed-dim">$188.40</span><span className="text-secondary-fixed-dim">-0.74%</span></div><div className="flex items-center gap-space-xs"><span className="text-on-surface font-semibold">NVDA</span><span className="text-primary-container">$142.25</span><span className="text-primary-container">+4.11%</span></div><div className="flex items-center gap-space-xs"><span className="text-on-surface font-semibold">SPX</span><span className="text-primary-container">$5,982.10</span><span className="text-primary-container">+0.28%</span></div><div className="flex items-center gap-space-xs"><span className="text-on-surface font-semibold">NQ</span><span className="text-primary-container">$21,114.50</span><span className="text-primary-container">+0.62%</span></div></div></div><div className="h-8 w-full px-space-md flex items-center justify-between gap-space-md bg-surface-container-low"><div className="flex items-center gap-space-lg"><div className="flex items-center gap-space-sm bg-surface-container-highest px-space-md py-space-xs rounded"><span className="font-headline-sm text-headline-sm text-on-surface tracking-tight">BTC/USDT Perp</span><span className="font-label-caps text-label-caps px-space-xs rounded bg-surface-container text-tertiary-fixed-dim">100X</span><span className="font-tabular-xs text-tabular-xs text-on-surface-variant">Vol: $4.82B</span><span className="font-tabular-xs text-tabular-xs text-primary-container">Idx: $92,450.20</span></div><div className="hidden xl:flex items-center gap-space-md font-tabular-xs text-tabular-xs text-on-surface-variant"><div className="flex items-center gap-1"><span className="w-1.5 h-1.5 bg-primary-container rounded-none"></span><span className="text-on-surface">WS Connected</span></div><div className="flex items-center gap-1"><span className="text-on-surface-variant">Kafka:</span><span className="text-primary-container">0ms</span></div><div className="flex items-center gap-1"><span className="text-on-surface-variant">L2:</span><span className="text-on-surface">420k msg/s</span></div><div className="flex items-center gap-1"><span className="text-on-surface-variant">MemTick:</span><span className="text-on-surface">1.2GB</span></div></div></div><div className="flex items-center gap-space-md"><div className="flex items-center gap-1 bg-surface-container px-space-sm py-space-xs rounded font-tabular-xs text-tabular-xs text-primary-container"><span className="material-symbols-outlined text-[14px]">speed</span><span>4µs NY4</span></div><button className="flex items-center text-on-surface-variant hover:text-on-surface transition-colors p-space-xs rounded hover:bg-surface-container" title="Toggle Sound Telemetry" type="button"><span className="material-symbols-outlined text-[16px]">volume_up</span></button><button className="flex items-center gap-1 text-on-surface-variant hover:text-on-surface transition-colors px-space-sm py-space-xs rounded bg-surface-container text-label-caps font-label-caps uppercase" title="Switch Tile Layout" type="button"><span className="material-symbols-outlined text-[14px]">dashboard_customize</span><span>Matrix 4x</span></button><div className="flex items-center gap-space-sm pl-space-sm"><div className="flex flex-col text-right hidden sm:flex"><span className="font-label-caps text-label-caps text-tertiary-fixed-dim uppercase leading-none">Citadel Alpha</span><span className="font-tabular-xs text-tabular-xs text-on-surface-variant leading-none mt-0.5">Desk #04</span></div><img alt="Profile" className="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmuTop0Nd7x9i2zAhB8jdoTyjW6PTOhYe0CMzZ73j1W-ij_LTozGtBcSkF0NrslroWVrsz064jiMIF7NwLnPy6vEj6DIO91c4EJ5xb-OyOstecuGggdw-6vMWOxtaJhPE3N9_vEgSFF0Jjcw8JbSP6ddv3-LdJ1-OfVZnRZiEOdwi21Ajad0kDjVBsvSt7_se6E4ncJb0wo0U12PW95hjT5O7mWxz1CXSa0BvSGHWF"/></div></div></div></header><main className="w-full pt-14 bg-surface-container-lowest min-h-screen"><div className="flex flex-col w-full text-on-surface">
+<!-- TOP TERMINAL METRIC RIBBON -->
+<div className="w-full bg-surface-container-lowest px-space-md py-space-sm shadow-md">
+<div className="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<!-- Instrument Core Specs -->
+<div className="flex items-center flex-wrap gap-space-lg">
+<div className="flex items-center gap-space-md">
+<div className="flex items-center gap-space-xs">
+<span className="w-2 h-2 bg-primary-container animate-pulse"></span>
+<span className="font-headline-md text-headline-md tracking-tight text-primary font-bold">BTC/USDT</span>
+<span className="font-label-caps text-label-caps px-space-xs py-0.5 bg-surface-container-high text-tertiary-fixed-dim">PERPETUAL</span>
+</div>
+<div className="flex items-baseline gap-space-sm pl-space-xs">
+<span className="font-tabular-lg text-tabular-lg text-primary-container font-bold" id="live-mark-price">$94,820.50</span>
+<span className="font-tabular-sm text-tabular-sm text-primary-container">+$3,240.20 (+3.54%)</span>
+</div>
+</div>
+<div className="flex items-center gap-space-md font-tabular-xs text-tabular-xs text-on-surface-variant">
+<div className="flex flex-col">
+<span className="font-label-caps text-label-caps text-on-surface-variant">24H HIGH</span>
+<span className="text-on-surface font-medium">$95,100.00</span>
+</div>
+<div className="flex flex-col">
+<span className="font-label-caps text-label-caps text-on-surface-variant">24H LOW</span>
+<span className="text-on-surface font-medium">$91,240.00</span>
+</div>
+<div className="flex flex-col">
+<span className="font-label-caps text-label-caps text-on-surface-variant">24H TURNOVER</span>
+<span className="text-on-surface font-medium">$5.41B</span>
+</div>
+<div className="flex flex-col">
+<span className="font-label-caps text-label-caps text-on-surface-variant">FUNDING (02:14:32)</span>
+<span className="text-primary-container font-medium">+0.0102%</span>
+</div>
+<div className="flex flex-col">
+<span className="font-label-caps text-label-caps text-on-surface-variant">OPEN INTEREST</span>
+<span className="text-tertiary-fixed-dim font-medium">84,219 BTC</span>
+</div>
+</div>
+</div>
+<!-- Quick Execution & Preset Switches -->
+<div className="flex items-center gap-space-sm self-start xl:self-auto flex-wrap">
+<div className="flex items-center bg-surface-container-high rounded p-0.5">
+<span className="font-label-caps text-label-caps px-space-sm py-space-xs text-primary-container bg-surface-container font-bold">CROSS 50X</span>
+<button className="font-label-caps text-label-caps px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors uppercase" type="button">ISOLATED</button>
+</div>
+<div className="flex items-center gap-space-xs">
+<button className="px-space-md py-1 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps rounded transition-colors uppercase" type="button">Limit</button>
+<button className="px-space-md py-1 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps rounded transition-colors uppercase" type="button">Market</button>
+<button className="px-space-md py-1 bg-surface-container hover:bg-surface-container-high text-tertiary-fixed-dim font-label-caps text-label-caps rounded transition-colors uppercase" type="button">TWAP</button>
+<button className="px-space-md py-1 bg-surface-container hover:bg-surface-container-high text-tertiary-fixed-dim font-label-caps text-label-caps rounded transition-colors uppercase" type="button">VWAP</button>
+<button className="px-space-md py-1 bg-surface-container hover:bg-surface-container-high text-tertiary-fixed-dim font-label-caps text-label-caps rounded transition-colors uppercase" type="button">Iceberg</button>
+</div>
+<div className="flex items-center gap-space-xs pl-space-xs">
+<button className="bg-primary-container hover:bg-primary-fixed text-on-primary font-tabular-sm text-tabular-sm font-bold px-space-md py-1 rounded shadow-sm transition-colors" type="button">
+            BUY / LONG
+          </button>
+<button className="bg-secondary-container hover:bg-on-secondary-fixed-variant text-on-secondary-container font-tabular-sm text-tabular-sm font-bold px-space-md py-1 rounded shadow-sm transition-colors" type="button">
+            SELL / SHORT
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- WORKSPACE MATRIX (Bento Layout) -->
+<div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter p-gutter bg-surface-container-high min-h-[calc(100vh-8.5rem)]">
+<!-- COLUMN 1 & 2: CHART DOMAIN (7 Cols) -->
+<div className="lg:col-span-7 flex flex-col gap-gutter">
+<!-- MAIN CANDLESTICK / DEPTH ENGINE -->
+<div className="bg-surface-container-lowest flex flex-col h-[520px] shadow-sm relative">
+<!-- Chart Controls Ribbon -->
+<div className="flex items-center justify-between px-space-md py-space-xs bg-surface-container-low">
+<div className="flex items-center gap-space-md">
+<div className="flex items-center gap-0.5 bg-surface-container-lowest p-0.5 rounded">
+<button className="font-tabular-xs text-tabular-xs px-2 py-0.5 text-on-surface-variant hover:text-on-surface" type="button">1s</button>
+<button className="font-tabular-xs text-tabular-xs px-2 py-0.5 bg-surface-container-high text-primary-container font-bold rounded" type="button">1m</button>
+<button className="font-tabular-xs text-tabular-xs px-2 py-0.5 text-on-surface-variant hover:text-on-surface" type="button">5m</button>
+<button className="font-tabular-xs text-tabular-xs px-2 py-0.5 text-on-surface-variant hover:text-on-surface" type="button">15m</button>
+<button className="font-tabular-xs text-tabular-xs px-2 py-0.5 text-on-surface-variant hover:text-on-surface" type="button">1h</button>
+<button className="font-tabular-xs text-tabular-xs px-2 py-0.5 text-on-surface-variant hover:text-on-surface" type="button">4h</button>
+<button className="font-tabular-xs text-tabular-xs px-2 py-0.5 text-on-surface-variant hover:text-on-surface" type="button">1D</button>
+</div>
+<div className="h-3 w-px bg-surface-container-highest"></div>
+<div className="flex items-center gap-space-xs font-label-caps text-label-caps">
+<span className="text-tertiary-fixed-dim bg-surface-container px-1.5 py-0.5 rounded">EMA 20/50/200</span>
+<span className="text-tertiary-fixed-dim bg-surface-container px-1.5 py-0.5 rounded">BOLL (20,2)</span>
+<span className="text-primary-container bg-surface-container px-1.5 py-0.5 rounded">POC: $94,620</span>
+<span className="text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">VWAP</span>
+</div>
+</div>
+<div className="flex items-center gap-space-xs">
+<button className="font-label-caps text-label-caps px-space-sm py-1 bg-surface-container-high text-primary-container rounded" type="button">CANDLES</button>
+<button className="font-label-caps text-label-caps px-space-sm py-1 bg-surface-container text-on-surface-variant hover:text-on-surface rounded" type="button">DEPTH 3D</button>
+<button className="font-label-caps text-label-caps px-space-sm py-1 bg-surface-container text-on-surface-variant hover:text-on-surface rounded" type="button">ORDER FLOW</button>
+</div>
+</div>
+<!-- Floating OHLC Realtime HUD -->
+<div className="px-space-md py-space-xs flex items-center justify-between text-on-surface-variant font-tabular-xs text-tabular-xs bg-surface-container-lowest/80 backdrop-blur-sm z-10">
+<div className="flex items-center gap-space-md flex-wrap">
+<span>O: <strong className="text-on-surface">94,780.00</strong></span>
+<span>H: <strong className="text-primary-container">94,850.50</strong></span>
+<span>L: <strong className="text-secondary-fixed-dim">94,750.00</strong></span>
+<span>C: <strong className="text-primary-container">94,820.50</strong></span>
+<span>VOL: <strong className="text-on-surface">1,420.48 BTC</strong></span>
+</div>
+<div className="flex items-center gap-space-sm font-label-caps text-label-caps">
+<span className="text-primary-container">SPREAD: $0.50 (0.0005%)</span>
+<span className="text-on-surface-variant">AGGREGATOR: L2 SYNTHETIC</span>
+</div>
+</div>
+<!-- Inline SVG Candlestick & Volume Canvas -->
+<div className="relative flex-1 w-full overflow-hidden bg-surface-container-lowest">
+<svg className="w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 900 420">
+<defs>
+<linearGradient id="volGreenGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stopColor="#00ff88" stopOpacity="0.45"></stop>
+<stop offset="100%" stopColor="#00ff88" stopOpacity="0.05"></stop>
+</linearGradient>
+<linearGradient id="volRedGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stopColor="#ff334b" stopOpacity="0.45"></stop>
+<stop offset="100%" stopColor="#ff334b" stopOpacity="0.05"></stop>
+</linearGradient>
+<linearGradient id="vwapGlow" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stopColor="#4cd7f6" stopOpacity="0.2"></stop>
+<stop offset="100%" stopColor="#4cd7f6" stopOpacity="0.9"></stop>
+</linearGradient>
+</defs>
+<!-- Horizontal Grid Lines -->
+<line stroke="#1d2026" strokeDasharray="4,4" strokeWidth="1" x1="0" x2="900" y1="60" y2="60"></line>
+<line stroke="#1d2026" strokeDasharray="4,4" strokeWidth="1" x1="0" x2="900" y1="120" y2="120"></line>
+<line stroke="#1d2026" strokeDasharray="4,4" strokeWidth="1" x1="0" x2="900" y1="180" y2="180"></line>
+<line stroke="#1d2026" strokeDasharray="4,4" strokeWidth="1" x1="0" x2="900" y1="240" y2="240"></line>
+<line stroke="#1d2026" strokeDasharray="4,4" strokeWidth="1" x1="0" x2="900" y1="300" y2="300"></line>
+<!-- Price Scale Coordinates On Canvas -->
+<text fill="#849585" fontFamily="JetBrains Mono" fontSize="10" x="840" y="58">95,000</text>
+<text fill="#849585" fontFamily="JetBrains Mono" fontSize="10" x="840" y="118">94,900</text>
+<text fill="#849585" fontFamily="JetBrains Mono" fontSize="10" x="840" y="178">94,800</text>
+<text fill="#849585" fontFamily="JetBrains Mono" fontSize="10" x="840" y="238">94,700</text>
+<text fill="#849585" fontFamily="JetBrains Mono" fontSize="10" x="840" y="298">94,600</text>
+<!-- VWAP Curvature Line -->
+<path d="M 30 220 Q 240 200, 450 175 T 840 145" fill="none" stroke="url(#vwapGlow)" strokeWidth="1.75"></path>
+<!-- Bollinger Band Envelope -->
+<path d="M 30 180 Q 250 160, 480 130 T 840 100" fill="none" stroke="#849585" strokeOpacity="0.3" strokeWidth="1"></path>
+<path d="M 30 260 Q 250 240, 480 210 T 840 190" fill="none" stroke="#849585" strokeOpacity="0.3" strokeWidth="1"></path>
+<!-- Candlesticks (Sequence of high precision candles) -->
+<!-- 1 Bullish -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="50" x2="50" y1="190" y2="240"></line>
+<rect fill="#00ff88" height="32" width="12" x="44" y="200"></rect>
+<!-- 2 Bearish -->
+<line stroke="#ff334b" strokeWidth="1.5" x1="90" x2="90" y1="185" y2="235"></line>
+<rect fill="#ff334b" height="24" width="12" x="84" y="195"></rect>
+<!-- 3 Bullish -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="130" x2="130" y1="170" y2="225"></line>
+<rect fill="#00ff88" height="35" width="12" x="124" y="180"></rect>
+<!-- 4 Bullish -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="170" x2="170" y1="160" y2="210"></line>
+<rect fill="#00ff88" height="30" width="12" x="164" y="170"></rect>
+<!-- 5 Bearish -->
+<line stroke="#ff334b" strokeWidth="1.5" x1="210" x2="210" y1="165" y2="220"></line>
+<rect fill="#ff334b" height="35" width="12" x="204" y="175"></rect>
+<!-- 6 Bearish -->
+<line stroke="#ff334b" strokeWidth="1.5" x1="250" x2="250" y1="190" y2="250"></line>
+<rect fill="#ff334b" height="42" width="12" x="244" y="200"></rect>
+<!-- 7 Bullish (Absorption) -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="290" x2="290" y1="195" y2="260"></line>
+<rect fill="#00ff88" height="25" width="12" x="284" y="210"></rect>
+<!-- 8 Bullish -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="330" x2="330" y1="175" y2="230"></line>
+<rect fill="#00ff88" height="38" width="12" x="324" y="185"></rect>
+<!-- 9 Bullish Spike -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="370" x2="370" y1="145" y2="200"></line>
+<rect fill="#00ff88" height="40" width="12" x="364" y="155"></rect>
+<!-- 10 Bearish Pullback -->
+<line stroke="#ff334b" strokeWidth="1.5" x1="410" x2="410" y1="150" y2="195"></line>
+<rect fill="#ff334b" height="22" width="12" x="404" y="160"></rect>
+<!-- 11 Bullish Consolidation -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="450" x2="450" y1="140" y2="185"></line>
+<rect fill="#00ff88" height="25" width="12" x="444" y="150"></rect>
+<!-- 12 Bullish Rally -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="490" x2="490" y1="120" y2="175"></line>
+<rect fill="#00ff88" height="35" width="12" x="484" y="130"></rect>
+<!-- 13 Bullish Push -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="530" x2="530" y1="105" y2="160"></line>
+<rect fill="#00ff88" height="30" width="12" x="524" y="115"></rect>
+<!-- 14 Bearish Exhaustion -->
+<line stroke="#ff334b" strokeWidth="1.5" x1="570" x2="570" y1="110" y2="170"></line>
+<rect fill="#ff334b" height="35" width="12" x="564" y="125"></rect>
+<!-- 15 Bullish Pin-Bar -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="610" x2="610" y1="125" y2="190"></line>
+<rect fill="#00ff88" height="15" width="12" x="604" y="135"></rect>
+<!-- 16 Bullish Surge -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="650" x2="650" y1="95" y2="155"></line>
+<rect fill="#00ff88" height="38" width="12" x="644" y="110"></rect>
+<!-- 17 Bearish Retest -->
+<line stroke="#ff334b" strokeWidth="1.5" x1="690" x2="690" y1="100" y2="148"></line>
+<rect fill="#ff334b" height="22" width="12" x="684" y="112"></rect>
+<!-- 18 Bullish Continuation -->
+<line stroke="#00ff88" strokeWidth="1.5" x1="730" x2="730" y1="80" y2="135"></line>
+<rect fill="#00ff88" height="32" width="12" x="724" y="92"></rect>
+<!-- 19 Current Live Active Candle -->
+<line stroke="#00ff88" strokeWidth="2" x1="770" x2="770" y1="75" y2="128"></line>
+<rect className="animate-pulse" fill="#00ff88" height="28" width="12" x="764" y="84"></rect>
+<!-- Live Horizontal Price Line stretching across chart -->
+<line opacity="0.9" stroke="#00ff88" strokeDasharray="5,3" strokeWidth="1.2" x1="0" x2="840" y1="84" y2="84"></line>
+<rect fill="#00ff88" height="20" rx="2" width="64" x="836" y="74"></rect>
+<text fill="#00210c" fontFamily="JetBrains Mono" fontSize="10.5" fontWeight="700" x="840" y="88">94,820.50</text>
+<!-- Real-time Pulsing Dot on Current Candlestick -->
+<circle cx="770" cy="84" fill="#00ff88" r="3.5"></circle>
+<circle className="animate-ping" cx="770" cy="84" opacity="0.6" r="7" stroke="#00ff88" strokeWidth="1"></circle>
+<!-- Bottom Volume Histogram Section (Height: 80px) -->
+<line stroke="#1d2026" strokeWidth="1" x1="0" x2="900" y1="340" y2="340"></line>
+<text fill="#849585" fontFamily="JetBrains Mono" fontSize="9" x="12" y="352">VOL (BTC) - L2 SYNC</text>
+<rect fill="url(#volGreenGrad)" height="40" width="12" x="44" y="375"></rect>
+<rect fill="url(#volRedGrad)" height="30" width="12" x="84" y="385"></rect>
+<rect fill="url(#volGreenGrad)" height="50" width="12" x="124" y="365"></rect>
+<rect fill="url(#volGreenGrad)" height="45" width="12" x="164" y="370"></rect>
+<rect fill="url(#volRedGrad)" height="55" width="12" x="204" y="360"></rect>
+<rect fill="url(#volRedGrad)" height="65" width="12" x="244" y="350"></rect>
+<rect fill="url(#volGreenGrad)" height="35" width="12" x="284" y="380"></rect>
+<rect fill="url(#volGreenGrad)" height="50" width="12" x="324" y="365"></rect>
+<rect fill="url(#volGreenGrad)" height="70" width="12" x="364" y="345"></rect>
+<rect fill="url(#volRedGrad)" height="37" width="12" x="404" y="378"></rect>
+<rect fill="url(#volGreenGrad)" height="43" width="12" x="444" y="372"></rect>
+<rect fill="url(#volGreenGrad)" height="60" width="12" x="484" y="355"></rect>
+<rect fill="url(#volGreenGrad)" height="53" width="12" x="524" y="362"></rect>
+<rect fill="url(#volRedGrad)" height="63" width="12" x="564" y="352"></rect>
+<rect fill="url(#volGreenGrad)" height="33" width="12" x="604" y="382"></rect>
+<rect fill="url(#volGreenGrad)" height="73" width="12" x="644" y="342"></rect>
+<rect fill="url(#volRedGrad)" height="45" width="12" x="684" y="370"></rect>
+<rect fill="url(#volGreenGrad)" height="65" width="12" x="724" y="350"></rect>
+<rect fill="url(#volGreenGrad)" height="71" width="12" x="764" y="344"></rect>
+</svg>
+</div>
+<!-- Cumulative Depth Wall Miniature Overlay (Bottom Corner Anchor) -->
+<div className="absolute bottom-3 left-3 bg-surface-container-low/90 backdrop-blur-md p-space-sm rounded w-72 shadow-xl">
+<div className="flex items-center justify-between text-label-caps font-label-caps text-on-surface-variant mb-1">
+<span>CUMULATIVE DEPTH (BID vs ASK)</span>
+<span className="text-primary-container">SPREAD: $0.50</span>
+</div>
+<div className="h-10 w-full flex items-end gap-1">
+<!-- Bids Wall -->
+<div className="w-1/2 h-full flex items-end justify-end gap-0.5">
+<div className="w-2 bg-primary-container/20 h-2"></div>
+<div className="w-2 bg-primary-container/30 h-4"></div>
+<div className="w-2 bg-primary-container/40 h-6"></div>
+<div className="w-2 bg-primary-container/60 h-8"></div>
+<div className="w-2 bg-primary-container h-full"></div>
+</div>
+<!-- Spread mid line -->
+<div className="w-0.5 bg-surface-bright h-full"></div>
+<!-- Asks Wall -->
+<div className="w-1/2 h-full flex items-end justify-start gap-0.5">
+<div className="w-2 bg-secondary-container h-7"></div>
+<div className="w-2 bg-secondary-container/60 h-5"></div>
+<div className="w-2 bg-secondary-container/40 h-4"></div>
+<div className="w-2 bg-secondary-container/30 h-3"></div>
+<div className="w-2 bg-secondary-container/20 h-1"></div>
+</div>
+</div>
+<div className="flex justify-between font-tabular-xs text-tabular-xs text-on-surface-variant mt-1">
+<span className="text-primary-container">Bids: 1,840 BTC</span>
+<span className="text-secondary-fixed-dim">Asks: 1,120 BTC</span>
+</div>
+</div>
+</div>
+<!-- RECENT EXECUTION TAPE (Under chart for institutional sub-second audit) -->
+<div className="bg-surface-container-lowest p-space-sm flex flex-col shadow-sm">
+<div className="flex items-center justify-between px-space-xs pb-space-xs bg-surface-container-low px-space-sm py-1">
+<div className="flex items-center gap-space-sm">
+<span className="material-symbols-outlined text-[16px] text-primary-container">receipt_long</span>
+<span className="font-label-caps text-label-caps uppercase tracking-wider text-on-surface">Live Market Trades Tape</span>
+<span className="font-tabular-xs text-tabular-xs text-on-surface-variant">420 Ticks/sec</span>
+</div>
+<span className="font-label-caps text-label-caps text-primary-container">WS: HIGH DENSITY REALTIME</span>
+</div>
+<div className="grid grid-cols-4 px-space-sm py-1 font-label-caps text-label-caps text-on-surface-variant bg-surface-container-lowest">
+<span>TIME (UTC-0)</span>
+<span className="text-right">PRICE (USDT)</span>
+<span className="text-right">SIZE (BTC)</span>
+<span className="text-right">SIDE</span>
+</div>
+<div className="flex flex-col font-tabular-xs text-tabular-xs overflow-hidden max-h-36">
+<div className="grid grid-cols-4 px-space-sm py-0.5 hover:bg-surface-container transition-colors items-center bg-primary-container/10">
+<span className="text-on-surface-variant">14:32:01.428912</span>
+<span className="text-right text-primary-container font-semibold">94,820.50</span>
+<span className="text-right text-on-surface">2.4180</span>
+<span className="text-right font-label-caps text-label-caps text-primary-container font-bold">BUY</span>
+</div>
+<div className="grid grid-cols-4 px-space-sm py-0.5 hover:bg-surface-container transition-colors items-center">
+<span className="text-on-surface-variant">14:32:01.398104</span>
+<span className="text-right text-primary-container font-semibold">94,820.50</span>
+<span className="text-right text-on-surface">0.8500</span>
+<span className="text-right font-label-caps text-label-caps text-primary-container font-bold">BUY</span>
+</div>
+<div className="grid grid-cols-4 px-space-sm py-0.5 hover:bg-surface-container transition-colors items-center bg-secondary-container/10">
+<span className="text-on-surface-variant">14:32:01.312005</span>
+<span className="text-right text-secondary-fixed-dim font-semibold">94,820.00</span>
+<span className="text-right text-on-surface">5.1200</span>
+<span className="text-right font-label-caps text-label-caps text-secondary-fixed-dim font-bold">SELL</span>
+</div>
+<div className="grid grid-cols-4 px-space-sm py-0.5 hover:bg-surface-container transition-colors items-center">
+<span className="text-on-surface-variant">14:32:01.298711</span>
+<span className="text-right text-primary-container font-semibold">94,820.50</span>
+<span className="text-right text-on-surface">0.1420</span>
+<span className="text-right font-label-caps text-label-caps text-primary-container font-bold">BUY</span>
+</div>
+<div className="grid grid-cols-4 px-space-sm py-0.5 hover:bg-surface-container transition-colors items-center">
+<span className="text-on-surface-variant">14:32:01.210452</span>
+<span className="text-right text-primary-container font-semibold">94,820.50</span>
+<span className="text-right text-on-surface">1.0000</span>
+<span className="text-right font-label-caps text-label-caps text-primary-container font-bold">BUY</span>
+</div>
+<div className="grid grid-cols-4 px-space-sm py-0.5 hover:bg-surface-container transition-colors items-center">
+<span className="text-on-surface-variant">14:32:01.194510</span>
+<span className="text-right text-secondary-fixed-dim font-semibold">94,820.00</span>
+<span className="text-right text-on-surface">0.4500</span>
+<span className="text-right font-label-caps text-label-caps text-secondary-fixed-dim font-bold">SELL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- COLUMN 3: ORDER BOOK DEPTH LADDER (2.5 / ~3 Cols equivalent) -->
+<div className="lg:col-span-2 flex flex-col bg-surface-container-lowest shadow-sm h-full">
+<!-- Order Book Telemetry Header -->
+<div className="p-space-sm bg-surface-container-low flex flex-col gap-0.5">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-label-caps uppercase text-on-surface font-semibold tracking-wider">L2 Depth Ladder</span>
+<span className="font-tabular-xs text-tabular-xs text-primary-container font-medium">12µs LATENCY</span>
+</div>
+<div className="flex items-center justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span>TICK: 18.4kHz</span>
+<span>BINANCE FUT</span>
+</div>
+</div>
+<!-- DOM Ladder Table Head -->
+<div className="grid grid-cols-3 px-space-sm py-1 font-label-caps text-label-caps text-on-surface-variant bg-surface-container-lowest">
+<span>PRICE (USDT)</span>
+<span className="text-right">SIZE</span>
+<span className="text-right">TOTAL</span>
+</div>
+<!-- ASKS (Red / descending to spread) -->
+<div className="flex flex-col overflow-hidden font-tabular-xs text-tabular-xs">
+<!-- Ask Row 8 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-secondary-container/15" style={{ width: "82%" }}></div>
+<span className="text-secondary-fixed-dim font-semibold z-10">94,830.00</span>
+<span className="text-right text-on-surface z-10">4.120</span>
+<span className="text-right text-on-surface-variant z-10">24.89</span>
+</div>
+<!-- Ask Row 7 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-secondary-container/15" style={{ width: "71%" }}></div>
+<span className="text-secondary-fixed-dim font-semibold z-10">94,828.50</span>
+<span className="text-right text-on-surface z-10">3.850</span>
+<span className="text-right text-on-surface-variant z-10">20.77</span>
+</div>
+<!-- Ask Row 6 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-secondary-container/15" style={{ width: "59%" }}></div>
+<span className="text-secondary-fixed-dim font-semibold z-10">94,827.00</span>
+<span className="text-right text-on-surface z-10">1.940</span>
+<span className="text-right text-on-surface-variant z-10">16.92</span>
+</div>
+<!-- Ask Row 5 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-secondary-container/15" style={{ width: "48%" }}></div>
+<span className="text-secondary-fixed-dim font-semibold z-10">94,825.50</span>
+<span className="text-right text-on-surface z-10">5.420</span>
+<span className="text-right text-on-surface-variant z-10">14.98</span>
+</div>
+<!-- Ask Row 4 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-secondary-container/15" style={{ width: "32%" }}></div>
+<span className="text-secondary-fixed-dim font-semibold z-10">94,824.00</span>
+<span className="text-right text-on-surface z-10">2.180</span>
+<span className="text-right text-on-surface-variant z-10">9.56</span>
+</div>
+<!-- Ask Row 3 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-secondary-container/15" style={{ width: "26%" }}></div>
+<span className="text-secondary-fixed-dim font-semibold z-10">94,823.00</span>
+<span className="text-right text-on-surface z-10">3.410</span>
+<span className="text-right text-on-surface-variant z-10">7.38</span>
+</div>
+<!-- Ask Row 2 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-secondary-container/15" style={{ width: "14%" }}></div>
+<span className="text-secondary-fixed-dim font-semibold z-10">94,822.00</span>
+<span className="text-right text-on-surface z-10">1.250</span>
+<span className="text-right text-on-surface-variant z-10">3.97</span>
+</div>
+<!-- Ask Row 1 (Best Ask) -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-secondary-container/15" style={{ width: "9%" }}></div>
+<span className="text-secondary-fixed-dim font-semibold z-10">94,821.00</span>
+<span className="text-right text-on-surface z-10">2.720</span>
+<span className="text-right text-on-surface-variant z-10">2.72</span>
+</div>
+</div>
+<!-- MID-MARKET SPREAD BANNER -->
+<div className="my-space-xs px-space-sm py-1.5 bg-surface-container flex flex-col gap-0.5 shadow-inner">
+<div className="flex items-center justify-between">
+<div className="flex items-center gap-space-xs">
+<span className="font-tabular-md text-tabular-md text-primary-container font-bold">94,820.50</span>
+<span className="material-symbols-outlined text-[16px] text-primary-container">arrow_upward</span>
+</div>
+<span className="font-label-caps text-label-caps text-on-surface-variant">SPREAD 0.50</span>
+</div>
+<div className="flex items-center justify-between font-label-caps text-label-caps">
+<span className="text-primary-container font-semibold">IMBALANCE: +62.4% BID</span>
+<span className="text-on-surface-variant">RATIO 1.66</span>
+</div>
+</div>
+<!-- BIDS (Green / descending from spread) -->
+<div className="flex flex-col overflow-hidden font-tabular-xs text-tabular-xs">
+<!-- Bid Row 1 (Best Bid) -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-primary-container/15" style={{ width: "12%" }}></div>
+<span className="text-primary-container font-semibold z-10">94,820.00</span>
+<span className="text-right text-on-surface z-10">3.510</span>
+<span className="text-right text-on-surface-variant z-10">3.51</span>
+</div>
+<!-- Bid Row 2 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-primary-container/15" style={{ width: "25%" }}></div>
+<span className="text-primary-container font-semibold z-10">94,819.00</span>
+<span className="text-right text-on-surface z-10">4.180</span>
+<span className="text-right text-on-surface-variant z-10">7.69</span>
+</div>
+<!-- Bid Row 3 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-primary-container/15" style={{ width: "41%" }}></div>
+<span className="text-primary-container font-semibold z-10">94,818.00</span>
+<span className="text-right text-on-surface z-10">6.240</span>
+<span className="text-right text-on-surface-variant z-10">13.93</span>
+</div>
+<!-- Bid Row 4 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-primary-container/15" style={{ width: "52%" }}></div>
+<span className="text-primary-container font-semibold z-10">94,817.00</span>
+<span className="text-right text-on-surface z-10">2.910</span>
+<span className="text-right text-on-surface-variant z-10">16.84</span>
+</div>
+<!-- Bid Row 5 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-primary-container/15" style={{ width: "68%" }}></div>
+<span className="text-primary-container font-semibold z-10">94,815.50</span>
+<span className="text-right text-on-surface z-10">8.400</span>
+<span className="text-right text-on-surface-variant z-10">25.24</span>
+</div>
+<!-- Bid Row 6 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-primary-container/15" style={{ width: "79%" }}></div>
+<span className="text-primary-container font-semibold z-10">94,814.00</span>
+<span className="text-right text-on-surface z-10">3.750</span>
+<span className="text-right text-on-surface-variant z-10">28.99</span>
+</div>
+<!-- Bid Row 7 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-primary-container/15" style={{ width: "88%" }}></div>
+<span className="text-primary-container font-semibold z-10">94,812.50</span>
+<span className="text-right text-on-surface z-10">4.200</span>
+<span className="text-right text-on-surface-variant z-10">33.19</span>
+</div>
+<!-- Bid Row 8 -->
+<div className="relative grid grid-cols-3 px-space-sm py-0.5 items-center hover:bg-surface-container">
+<div className="absolute right-0 top-0 bottom-0 bg-primary-container/15" style={{ width: "98%" }}></div>
+<span className="text-primary-container font-semibold z-10">94,810.00</span>
+<span className="text-right text-on-surface z-10">12.800</span>
+<span className="text-right text-on-surface-variant z-10">45.99</span>
+</div>
+</div>
+</div>
+<!-- COLUMN 4: QUANT ENGINE & AI COPILOT (3 Cols) -->
+<div className="lg:col-span-3 flex flex-col gap-gutter">
+<!-- PANEL 4A: QUANT SIGNAL ENGINE & RISK GAUGES -->
+<div className="bg-surface-container-lowest p-space-sm flex flex-col shadow-sm">
+<div className="flex items-center justify-between pb-space-xs bg-surface-container-low px-space-sm py-1">
+<div className="flex items-center gap-space-xs">
+<span className="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">bolt</span>
+<span className="font-label-caps text-label-caps uppercase text-on-surface font-semibold">Python Signal Engine</span>
+</div>
+<span className="font-label-caps text-label-caps text-on-surface-variant">JIT v4.2.0</span>
+</div>
+<!-- Portfolio VaR Metric Card -->
+<div className="mt-space-sm bg-surface-container p-space-sm rounded flex items-center justify-between">
+<div className="flex flex-col">
+<span className="font-label-caps text-label-caps text-on-surface-variant">1-DAY 99% VaR (PARAMETRIC)</span>
+<span className="font-tabular-md text-tabular-md text-on-surface font-bold">$184,200 <span className="text-primary-container text-tabular-xs font-normal">(2.41% NAV)</span></span>
+<span className="font-label-caps text-label-caps text-primary-container mt-0.5">STATUS: SAFE REGIME</span>
+</div>
+<div className="w-12 h-12 relative flex items-center justify-center">
+<svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+<path className="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="3"></path>
+<path className="text-primary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeDasharray="24, 100" strokeLinecap="round" strokeWidth="3"></path>
+</svg>
+<span className="absolute font-tabular-xs text-tabular-xs font-bold text-on-surface">2.4%</span>
+</div>
+</div>
+<!-- Active Quantitative Signals -->
+<div className="flex flex-col gap-1 mt-space-sm">
+<!-- Signal 1 -->
+<div className="flex items-center justify-between bg-surface-container-low px-space-sm py-1 rounded">
+<div className="flex flex-col">
+<span className="font-label-caps text-label-caps text-on-surface">Momentum Breakout (H1)</span>
+<span className="font-tabular-xs text-tabular-xs text-on-surface-variant">Target: $96,200 · Stop: $93,900</span>
+</div>
+<div className="flex flex-col items-end">
+<span className="font-label-caps text-label-caps px-space-xs py-0.5 bg-primary-container text-on-primary font-bold rounded">BUY 89.4%</span>
+</div>
+</div>
+<!-- Signal 2 -->
+<div className="flex items-center justify-between bg-surface-container-low px-space-sm py-1 rounded">
+<div className="flex flex-col">
+<span className="font-label-caps text-label-caps text-on-surface">Order Flow Delta (S30)</span>
+<span className="font-tabular-xs text-tabular-xs text-on-surface-variant">Delta: +412.8 BTC · CVD Spike</span>
+</div>
+<div className="flex flex-col items-end">
+<span className="font-label-caps text-label-caps px-space-xs py-0.5 bg-primary-container text-on-primary font-bold rounded">AGGRESSIVE</span>
+</div>
+</div>
+<!-- Signal 3 -->
+<div className="flex items-center justify-between bg-surface-container-low px-space-sm py-1 rounded">
+<div className="flex flex-col">
+<span className="font-label-caps text-label-caps text-on-surface">Perp-Spot Basis Arbitrage</span>
+<span className="font-tabular-xs text-tabular-xs text-on-surface-variant">Basis: +14.2 bps · Low Variance</span>
+</div>
+<div className="flex flex-col items-end">
+<span className="font-label-caps text-label-caps px-space-xs py-0.5 bg-tertiary-fixed-dim text-on-tertiary font-bold rounded">SPREAD LONG</span>
+</div>
+</div>
+</div>
+<!-- Quant Metrics Grid -->
+<div className="grid grid-cols-3 gap-1 mt-space-sm font-tabular-xs text-tabular-xs">
+<div className="bg-surface-container p-1 rounded flex flex-col text-center">
+<span className="font-label-caps text-label-caps text-on-surface-variant">SHARPE</span>
+<span className="text-primary-container font-bold">3.42</span>
+</div>
+<div className="bg-surface-container p-1 rounded flex flex-col text-center">
+<span className="font-label-caps text-label-caps text-on-surface-variant">SORTINO</span>
+<span className="text-primary-container font-bold">4.88</span>
+</div>
+<div className="bg-surface-container p-1 rounded flex flex-col text-center">
+<span className="font-label-caps text-label-caps text-on-surface-variant">MAX DD</span>
+<span className="text-secondary-fixed-dim font-bold">-4.12%</span>
+</div>
+</div>
+</div>
+<!-- PANEL 4B: AI RESEARCH COPILOT -->
+<div className="bg-surface-container-lowest p-space-sm flex flex-col flex-1 shadow-sm">
+<div className="flex items-center justify-between pb-space-xs bg-surface-container-low px-space-sm py-1">
+<div className="flex items-center gap-space-xs">
+<span className="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">smart_toy</span>
+<span className="font-label-caps text-label-caps uppercase text-on-surface font-semibold">Quant Copilot v2.4</span>
+</div>
+<span className="font-label-caps text-label-caps px-1 bg-surface-container text-tertiary-fixed-dim rounded">LLAMA-3 70B · 48ms</span>
+</div>
+<!-- Copilot Interactive Chat Stream -->
+<div className="flex flex-col gap-space-sm my-space-sm flex-1 font-body-sm text-body-sm overflow-hidden">
+<div className="bg-surface-container p-space-sm rounded">
+<div className="flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant mb-1">
+<span className="material-symbols-outlined text-[12px]">account_circle</span>
+<span>QUERY (DESK #04)</span>
+</div>
+<p className="text-on-surface text-tabular-xs font-tabular-xs">
+              Order book imbalance and whale absorption signal for BTC perpetuals?
+            </p>
+</div>
+<div className="bg-surface-container-low p-space-sm rounded">
+<div className="flex items-center justify-between font-label-caps text-label-caps text-tertiary-fixed-dim mb-1">
+<div className="flex items-center gap-1">
+<span className="material-symbols-outlined text-[12px]">neurology</span>
+<span>SYNTHESIS COMPLETE</span>
+</div>
+<span className="text-primary-container">+3.8σ BUY CVD</span>
+</div>
+<p className="text-on-surface-variant font-tabular-xs text-tabular-xs leading-relaxed">
+              Binance L2 indicates Bid skew is <strong className="text-primary-container">+62.4%</strong> concentrated at $94,600-$94,750 (2,140 BTC wall). Engine detected whale absorption of 480 BTC at $94,780 via Iceberg execution in the last 4 minutes.
+            </p>
+<div className="mt-1.5 p-1 bg-surface-container rounded text-tabular-xs font-tabular-xs text-primary-container font-medium">
+              Recommendation: Favorable R:R for momentum scalp; tight invalidation at $94,550.
+            </div>
+</div>
+</div>
+<!-- Quick AI Triggers -->
+<div className="flex items-center gap-1 flex-wrap mb-space-xs">
+<button className="font-label-caps text-label-caps px-1.5 py-0.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded transition-colors" type="button">Explain CVD</button>
+<button className="font-label-caps text-label-caps px-1.5 py-0.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded transition-colors" type="button">Detect Spoofing</button>
+<button className="font-label-caps text-label-caps px-1.5 py-0.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded transition-colors" type="button">Kelly Bet Size</button>
+</div>
+<!-- Chat Input Dock -->
+<div className="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded">
+<input className="bg-transparent font-tabular-xs text-tabular-xs text-on-surface placeholder:text-on-surface-variant outline-none w-full" placeholder="Send prompt to algorithmic co-pilot..." type="text"/>
+<button className="text-primary-container hover:text-primary-fixed" type="button">
+<span className="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- BOTTOM FULL-WIDTH DOCKED TELEMETRY & ZERO-ALLOCATION SYSTEM HEALTH (Grafana Mini Console) -->
+<div className="w-full bg-surface-container-lowest p-space-sm mt-gutter shadow-md">
+<div className="flex items-center justify-between pb-space-xs px-space-sm bg-surface-container-low">
+<div className="flex items-center gap-space-md">
+<div className="flex items-center gap-space-xs">
+<span className="w-2 h-2 bg-primary-container"></span>
+<span className="font-label-caps text-label-caps uppercase text-on-surface font-semibold tracking-wider">Infrastructure Telemetry &amp; Zero-Allocation Hot Path</span>
+</div>
+<span className="font-label-caps text-label-caps text-on-surface-variant">3 NODES HEALTHY · 0 DROPPED PACKETS</span>
+</div>
+<div className="flex items-center gap-space-md font-tabular-xs text-tabular-xs text-on-surface-variant">
+<span>SOLARFLARE EF_VI ACTIVE</span>
+<span>KERNEL BYPASS ON</span>
+<span className="text-primary-container">UPTIME 99.999%</span>
+</div>
+</div>
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-gutter p-gutter bg-surface-container-high">
+<!-- Node 1: Kafka Engine -->
+<div className="bg-surface-container-lowest p-space-sm flex flex-col justify-between">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-label-caps text-on-surface-variant">KAFKA CLUSTER</span>
+<span className="font-label-caps text-label-caps text-primary-container font-bold">842.5k msg/s</span>
+</div>
+<!-- Sparkline representation -->
+<div className="h-6 w-full my-1">
+<svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 24">
+<path d="M0,18 Q20,12 40,15 T80,8 L100,5" fill="none" stroke="#4cd7f6" strokeWidth="1.5"></path>
+</svg>
+</div>
+<div className="flex items-center justify-between font-tabular-xs text-tabular-xs text-on-surface-variant">
+<span>Partitions: 64</span>
+<span>Lag: 0</span>
+</div>
+</div>
+<!-- Node 2: C++ Zero-Alloc SPSC -->
+<div className="bg-surface-container-lowest p-space-sm flex flex-col justify-between">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-label-caps text-on-surface-variant">C++ SPSC QUEUES</span>
+<span className="font-label-caps text-label-caps text-primary-container font-bold">LOCK-FREE</span>
+</div>
+<div className="my-1">
+<div className="font-tabular-md text-tabular-md font-bold text-on-surface">1.8µs <span className="text-primary-container font-normal font-tabular-xs text-tabular-xs">P99 Latency</span></div>
+</div>
+<div className="flex items-center justify-between font-tabular-xs text-tabular-xs text-on-surface-variant">
+<span>Max Jitter: 0.4µs</span>
+<span>Heap: 0 B</span>
+</div>
+</div>
+<!-- Node 3: Redis In-Memory State -->
+<div className="bg-surface-container-lowest p-space-sm flex flex-col justify-between">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-label-caps text-on-surface-variant">REDIS PUB/SUB</span>
+<span className="font-label-caps text-label-caps text-primary-container font-bold">100% HIT</span>
+</div>
+<div className="my-1">
+<div className="font-tabular-md text-tabular-md font-bold text-on-surface">0.24ms <span className="text-tertiary-fixed-dim font-normal font-tabular-xs text-tabular-xs">RTT Core</span></div>
+</div>
+<div className="flex items-center justify-between font-tabular-xs text-tabular-xs text-on-surface-variant">
+<span>Mem: 4.1GB / 32GB</span>
+<span>Clients: 180</span>
+</div>
+</div>
+<!-- Node 4: Solarflare FPGA NIC -->
+<div className="bg-surface-container-lowest p-space-sm flex flex-col justify-between">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-label-caps text-on-surface-variant">SOLARFLARE NIC</span>
+<span className="font-label-caps text-label-caps text-primary-container font-bold">OPENONLOAD</span>
+</div>
+<div className="my-1">
+<div className="font-tabular-md text-tabular-md font-bold text-on-surface">0.000% <span className="text-primary-container font-normal font-tabular-xs text-tabular-xs">Drop Rate</span></div>
+</div>
+<div className="flex items-center justify-between font-tabular-xs text-tabular-xs text-on-surface-variant">
+<span>SFP28: 25GbE</span>
+<span>Tx: 18.2M pps</span>
+</div>
+</div>
+<!-- Node 5: WS Broadcaster -->
+<div className="bg-surface-container-lowest p-space-sm flex flex-col justify-between">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-label-caps text-on-surface-variant">WS BROADCAST</span>
+<span className="font-label-caps text-label-caps text-primary-container font-bold">14,290 PEERS</span>
+</div>
+<div className="my-1">
+<div className="font-tabular-md text-tabular-md font-bold text-on-surface">1.4 Gbps <span className="text-tertiary-fixed-dim font-normal font-tabular-xs text-tabular-xs">Egress</span></div>
+</div>
+<div className="flex items-center justify-between font-tabular-xs text-tabular-xs text-on-surface-variant">
+<span>Backpressure: 0</span>
+<span>SSL Offload</span>
+</div>
+</div>
+</div>
+</div>
+</div>
